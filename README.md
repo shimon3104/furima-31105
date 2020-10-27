@@ -10,7 +10,7 @@
 | last_name_ruby     | string | null: false |
 | email              | string | null: false |
 | encrypted_password | string | null: false |    
-| birthday           | data   | null: false |
+| birthday           | date   | null: false |
 | nickname           | string | null: false |
 
 ### Association
