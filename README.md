@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column          | Type   | Options     |
-| --------------- | ------ | ----------- |
-| first_name      | string | null: false |
-| last_name       | string | null: false |
-| first_name_ruby | string | null: false |
-| last_name_ruby  | string | null: false |
-| emil            | string | null: false |
-| password        | string | null: false |   
-| birthday        | data   | null: false |
-| nickname        | string | null: false |
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| first_name         | string | null: false |
+| last_name          | string | null: false |
+| first_name_ruby    | string | null: false |
+| last_name_ruby     | string | null: false |
+| emil               | string | null: false |
+| encrypted_password | string | null: false |    
+| birthday           | data   | null: false |
+| nickname           | string | null: false |
 
 ### Association
 
@@ -23,15 +23,15 @@
 
 | Column                   | Type       | Options                        |
 | ------------------------ | ---------- | ------------------------------ |
-| item_name                | string     | null: false                    |
-| item_description         | text       | null: false                    |
+| name                     | string     | null: false                    |
+| description              | text       | null: false                    |
 | category_id   *2         | integer    | null: false                    |
 | item_status_id   *2      | integer    | null: false                    |
 | shipping_charges_id   *2 | integer    | null: false                    |
 | shipping_area_id   *2    | integer    | null: false                    |
 | days_to_ship_id   *2     | integer    | null: false                    |
 | price                    | integer    | null: false                    |
-| user_id                  | references | null: false, foreign_key :true |
+| user                     | references | null: false, foreign_key :true |
 
 *1  imageはActive_Storageで保存
 *2  active_hash使用
@@ -44,11 +44,10 @@
 
 ##  orders テーブル
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| user_id       | references | null: false, foreign_key :true |
-| item_id       | references | null: false, foreign_key :true |
-| receive_id    | references | null: false, foreign_key :true |
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key :true |
+| item   | references | null: false, foreign_key :true |
 
 ### Association
 
@@ -67,7 +66,7 @@
 | address             | string     | null: false                    |
 | building_name       | string     |                                |
 | phone_number        | string     | null: false                    |
-| order_id            | references | null: false, foreign_key :true |
+| order               | references | null: false, foreign_key :true |
 
 *2  active_hash使用
 
