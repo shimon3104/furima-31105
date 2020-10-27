@@ -8,7 +8,7 @@
 | last_name          | string | null: false |
 | first_name_ruby    | string | null: false |
 | last_name_ruby     | string | null: false |
-| emil               | string | null: false |
+| email              | string | null: false |
 | encrypted_password | string | null: false |    
 | birthday           | data   | null: false |
 | nickname           | string | null: false |
