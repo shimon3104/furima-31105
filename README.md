@@ -18,43 +18,60 @@
 - has_many :items
 - has_many :orders
 
+
 ##  items テーブル
 
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| item_name        | string     | null: false                    |
-| item_description | text       | null: false                    |
-| category         | string     | null: false                    |
-| item_status      | string     | null: false                    |
-| shipping_charges | string     | null: false                    |
-| shipping_area    | string     | null: false                    |
-| days_to_ship     | string     | null: false                    |
-| price            | integer    | null: false                    |
-| user_id          | references | null: false, foreign_key :true |
-| purchased        | boolean    | null: false, default: false    |
+| Column                   | Type       | Options                        |
+| ------------------------ | ---------- | ------------------------------ |
+| item_name                | string     | null: false                    |
+| item_description         | text       | null: false                    |
+| category_id   *2         | integer    | null: false                    |
+| item_status_id   *2      | integer    | null: false                    |
+| shipping_charges_id   *2 | integer    | null: false                    |
+| shipping_area_id   *2    | integer    | null: false                    |
+| days_to_ship_id   *2     | integer    | null: false                    |
+| price                    | integer    | null: false                    |
+| user_id                  | references | null: false, foreign_key :true |
 
-
-※imageはActiveStrageで保存
+*1  imageはActive_Storageで保存
+*2  active_hash使用
 
 ### Association
 
 - belongs_to :user
 - has_one :order
 
+
 ##  orders テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| postal_code   | integer    | null: false                    |
-| prefectures   | string     | null: false                    |
-| city_name     | string     | null: false                    |
-| address       | integer    | null: false                    |
-| building_name | string     |                                |
-| phone_number  | integer    | null: false                    |
 | user_id       | references | null: false, foreign_key :true |
 | item_id       | references | null: false, foreign_key :true |
+| receive_id    | references | null: false, foreign_key :true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
+- has_one :receive
+
+
+##  receives テーブル
+
+| Column              | Type       | Options                        |
+| ------------------- | ---------- | ------------------------------ |
+| postal_code         | string     | null: false                    |
+| prefectures_id   *2 | integer    | null: false                    |
+| city_name           | string     | null: false                    |
+| address             | string     | null: false                    |
+| building_name       | string     |                                |
+| phone_number        | string     | null: false                    |
+| order_id            | references | null: false, foreign_key :true |
+
+*2  active_hash使用
+
+### Association
+
+- belongs_to :order
+
