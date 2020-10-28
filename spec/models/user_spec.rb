@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
       @user = FactoryBot.build(:user)
     end
 
-    it "全ての情報が存在すれば登録できる" do
+    it "全ての項目が存在すれば登録できる" do
       expect(@user).to be_valid
     end
 
