@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
+  belongs_to_active_hash :item_status
   belongs_to :user
   has_one_attached :image
 
@@ -18,4 +19,5 @@ class Item < ApplicationRecord
   
   validates :price, presence: true, format: { with: /\A[0-9]+\z/, message: 'Include both numbers' }
   validates :category_id, numericality: { other_than: 0 }
+  validates :item_status_id, numericality: { other_than: 0 }
 end
