@@ -3,6 +3,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :category
   belongs_to_active_hash :item_status
   belongs_to_active_hash :shipping_charge
+  belongs_to_active_hash :shipping_area
   belongs_to :user
   has_one_attached :image
 
@@ -22,4 +23,5 @@ class Item < ApplicationRecord
   validates :category_id, numericality: { other_than: 0 }
   validates :item_status_id, numericality: { other_than: 0 }
   validates :shipping_charges_id, numericality: { other_than: 0 }
+  validates :shipping_area_id, numericality: { other_than: 0 }
 end
