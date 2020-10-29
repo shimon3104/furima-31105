@@ -1,4 +1,6 @@
 class Item < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :category
   belongs_to :user
   has_one_attached :image
 
@@ -11,7 +13,9 @@ class Item < ApplicationRecord
     validates :shipping_charges_id
     validates :shipping_area_id
     validates :days_to_ship_id
+    validates :category
   end
   
   validates :price, presence: true, format: { with: /\A[0-9]+\z/, message: 'Include both numbers' }
+  validates :category_id, numericality: { other_than: 0 }
 end
