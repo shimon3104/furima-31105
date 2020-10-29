@@ -21,6 +21,6 @@ class Item < ApplicationRecord
     validates :days_to_ship_id
   end
 
-  validates :price, presence: true, format: { with: /\A[0-9]+\z/, message: 'Include both numbers' }
+  validates :price, presence: true, inclusion: { in: 300..9999999 , message: 'Out of setting range'}, format: { with: /\A[0-9]+\z/ }
   
 end
