@@ -11,7 +11,7 @@ class Item < ApplicationRecord
     validates :shipping_charges_id
     validates :shipping_area_id
     validates :days_to_ship_id
-    validates :price
   end
   
+  validates :price, presence: true, format: { with: /\A[0-9]+\z/, message: 'Include both numbers' }
 end
