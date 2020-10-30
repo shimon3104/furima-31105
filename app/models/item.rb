@@ -13,10 +13,10 @@ class Item < ApplicationRecord
     validates :name
     validates :description
   end
-  validates :price, presence: true, numericality: { only_integer: true, message: 'Half-width number'}, inclusion: { in: 300..9999999, message: 'Out of setting range'}
-  # format: { with: /\A[0-9]+\z/i, message: 'Half-width number'}
+
+  validates :price, presence: true, numericality: { only_integer: true, message: 'Half-width number' }, inclusion: { in: 300..9999999, message: 'Out of setting range' }
   
-  with_options presence: true, numericality: { other_than: 0, message: 'Select'} do
+  with_options presence: true, numericality: { other_than: 0, message: 'Select' } do
     validates :category_id
     validates :item_status_id
     validates :shipping_charges_id

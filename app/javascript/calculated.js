@@ -6,9 +6,9 @@ function calculation (){
     const addTaxPrice  = document.getElementById("add-tax-price");
     addTaxPrice.innerHTML = `${fee}`;
 
-    const profitCalculation = itemPrice.value - fee
-    const profit = document.getElementById("profit")
-    profit.innerHTML = `${profitCalculation}`
+    const profitCalculation = itemPrice.value - fee;
+    const profit = document.getElementById("profit");
+    profit.innerHTML = `${profitCalculation}`;
   });
 }
 
