@@ -27,7 +27,7 @@
 | description              | text       | null: false                    |
 | category_id   *2         | integer    | null: false                    |
 | item_status_id   *2      | integer    | null: false                    |
-| shipping_charges_id   *2 | integer    | null: false                    |
+| delivery_burden_id   *2  | integer    | null: false                    |
 | shipping_area_id   *2    | integer    | null: false                    |
 | days_to_ship_id   *2     | integer    | null: false                    |
 | price                    | integer    | null: false                    |
