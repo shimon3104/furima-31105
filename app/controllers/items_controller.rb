@@ -18,6 +18,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def
+
+  end
+  
   private
 
   def item_params
