@@ -4,7 +4,7 @@ FactoryBot.define do
     description {Faker::Lorem.sentence}
     category_id {Faker::Number.within(range: 1..10)}
     item_status_id {Faker::Number.within(range: 1..6)}
-    shipping_charges_id {Faker::Number.within(range:1..2)}
+    delivery_burden_id {Faker::Number.within(range:1..2)}
     shipping_area_id {Faker::Number.within(range: 1..47)}
     days_to_ship_id {Faker::Number.within(range: 1..3)}
     price {Faker::Number.within(range: 300..9999999)}

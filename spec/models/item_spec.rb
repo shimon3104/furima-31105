@@ -44,9 +44,9 @@ RSpec.describe Item, type: :model do
       end
 
       it "shipping_charges_idが0では登録できない" do
-        @item.shipping_charges_id = 0
+        @item.delivery_burden_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping charges Select")
+        expect(@item.errors.full_messages).to include("Delivery burden Select")
       end
 
       it "shipping_area_idが0では登録できない" do
