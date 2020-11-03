@@ -14,8 +14,8 @@ class Item < ApplicationRecord
     validates :description
   end
 
-  validates :price, presence: true, numericality: { only_integer: true, message: 'Half-width number' }, inclusion: { in: 300..9999999, message: 'Out of setting range' }
-  
+  validates :price, presence: true, numericality: { only_integer: true, message: 'Half-width number' }, inclusion: { in: 300..9_999_999, message: 'Out of setting range' }
+
   with_options presence: true, numericality: { other_than: 0, message: 'Select' } do
     validates :category_id
     validates :item_status_id
@@ -23,5 +23,4 @@ class Item < ApplicationRecord
     validates :shipping_area_id
     validates :days_to_ship_id
   end
-
 end
