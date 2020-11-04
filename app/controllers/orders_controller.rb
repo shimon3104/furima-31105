@@ -1,12 +1,14 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :create]
+  before_action :set_item, only: [:index, :create]
+  before_action :move_to_index, only: [:index, :create]
+
   def index
-    @item = Item.find(params[:item_id])
     @order_receive = OrderReceive.new
   end
 
   def create
     @order_receive = OrderReceive.new(receive_params)
-    @item = Item.find(params[:item_id])
     if @order_receive.valid?
       pay_item
       @order_receive.save
@@ -29,6 +31,16 @@ class OrdersController < ApplicationController
         card: receive_params[:token],
         currency: 'jpy'
       )
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
+  def move_to_index
+    if Order.pluck(:item_id).include?(@item.id)
+      redirect_to root_path
+    end
   end
 
 end
