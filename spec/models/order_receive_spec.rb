@@ -65,6 +65,12 @@ RSpec.describe OrderReceive, type: :model do
         @order_receive.valid?
         expect(@order_receive.errors.full_messages).to include('Phone number Input only number')
       end
+
+      it 'phone_numberは11桁以内でなければ購入できない' do
+        @order_receive.phone_number = 123456789012
+        @order_receive.valid?
+        expect(@order_receive.errors.full_messages).to include('Phone number is too long (maximum is 11 characters)')
+      end
     end
   end
 end
