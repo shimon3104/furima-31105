@@ -23,7 +23,7 @@ RSpec.describe OrderReceive, type: :model do
         @order_receive.valid?
         expect(@order_receive.errors.full_messages).to include("Token can't be blank")
       end
-      
+
       it 'postal_codeが空では購入できない' do
         @order_receive.postal_code = nil
         @order_receive.valid?
@@ -33,7 +33,7 @@ RSpec.describe OrderReceive, type: :model do
       it 'prefecture_idが0では購入できない' do
         @order_receive.prefecture_id = 0
         @order_receive.valid?
-        expect(@order_receive.errors.full_messages).to include("Prefecture Select")
+        expect(@order_receive.errors.full_messages).to include('Prefecture Select')
       end
 
       it 'city_nameが空では購入できない' do
@@ -57,15 +57,14 @@ RSpec.describe OrderReceive, type: :model do
       it 'postal_codeが半角のハイフンを含んだ正しい形式でないと購入できない' do
         @order_receive.postal_code = '1234567'
         @order_receive.valid?
-        expect(@order_receive.errors.full_messages).to include("Postal code Input correctly")
+        expect(@order_receive.errors.full_messages).to include('Postal code Input correctly')
       end
 
       it 'phone_numberが半角数字以外だと購入できない' do
         @order_receive.phone_number = '０９０１２３４５６７８'
         @order_receive.valid?
-        expect(@order_receive.errors.full_messages).to include("Phone number Input only number")
+        expect(@order_receive.errors.full_messages).to include('Phone number Input only number')
       end
-
     end
   end
 end

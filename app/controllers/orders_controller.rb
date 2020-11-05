@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     if @order_receive.valid?
       pay_item
       @order_receive.save
-      return redirect_to root_path
+      redirect_to root_path
     else
       render action: :index
     end
@@ -25,12 +25,12 @@ class OrdersController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-      Payjp::Charge.create(
-        amount: @item.price,
-        card: receive_params[:token],
-        currency: 'jpy'
-      )
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    Payjp::Charge.create(
+      amount: @item.price,
+      card: receive_params[:token],
+      currency: 'jpy'
+    )
   end
 
   def set_item
