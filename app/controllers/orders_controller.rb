@@ -40,6 +40,8 @@ class OrdersController < ApplicationController
   def move_to_index
     if Order.pluck(:item_id).include?(@item.id)
       redirect_to root_path
+    elsif @item.user_id == current_user.id
+      redirect_to root_path
     end
   end
 
