@@ -54,13 +54,13 @@ RSpec.describe OrderReceive, type: :model do
         expect(@order_receive.errors.full_messages).to include("Phone number can't be blank")
       end
 
-      it 'postal_codeが半角のハイフンを含んだ正しい形式でないと保存できないこと' do
+      it 'postal_codeが半角のハイフンを含んだ正しい形式でないと購入できない' do
         @order_receive.postal_code = '1234567'
         @order_receive.valid?
         expect(@order_receive.errors.full_messages).to include("Postal code Input correctly")
       end
 
-      it 'phone_numberが半角数字以外だと登録できない' do
+      it 'phone_numberが半角数字以外だと購入できない' do
         @order_receive.phone_number = '０９０１２３４５６７８'
         @order_receive.valid?
         expect(@order_receive.errors.full_messages).to include("Phone number Input only number")

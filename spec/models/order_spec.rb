@@ -6,13 +6,13 @@ RSpec.describe Order, type: :model do
       @order = FactoryBot.build(:order)
     end
 
-    it 'userが紐付いていないと登録できない' do
+    it 'userが紐付いていないと購入できない' do
       @order.user = nil
       @order.valid?
       expect(@order.errors.full_messages).to include('User must exist')
     end
 
-    it 'itemが紐付いていないと登録できない' do
+    it 'itemが紐付いていないと購入できない' do
       @order.item = nil
       @order.valid?
       expect(@order.errors.full_messages).to include('Item must exist')
